@@ -9,10 +9,17 @@ package lab.pkg3;
  * @author sayyam
  */
 public class BinaryObserver extends Observer{
+    
+    public BinaryObserver(){
+        System.out.println("You are not subscribed to any subject.");
+    }
 
    public BinaryObserver(Subject subject){
       this.subject = subject;
-      this.subject.attach(this);
+      if(this.subject != null)
+           this.subject.attach(this);
+      else
+           System.out.println("You are not subscribed to any subject.");
    }
 
    @Override

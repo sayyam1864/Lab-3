@@ -9,10 +9,17 @@ package lab.pkg3;
  * @author sayyam
  */
 public class OctalObserver extends Observer{
+    
+    public OctalObserver(){
+        System.out.println("You are not subscribed to any subject.");
+    }
 
    public OctalObserver(Subject subject){
       this.subject = subject;
-      this.subject.attach(this);
+      if(this.subject != null)
+           this.subject.attach(this);
+      else
+           System.out.println("You are not subscribed to any subject.");
    }
 
    @Override
