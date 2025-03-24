@@ -9,14 +9,21 @@ package lab.pkg3;
  * @author sayyam
  */
 public class HexaObserver extends Observer{
+    
+    public HexaObserver(){
+        System.out.println("You are not subscribed to any subject.");
+    }
 
    public HexaObserver(Subject subject){
       this.subject = subject;
-      this.subject.attach(this);
+      if(this.subject != null)
+           this.subject.attach(this);
+      else
+           System.out.println("You are not subscribed to any subject.");
    }
 
    @Override
    public void update() {
-      System.out.println( "Hex String: " + Integer.toHexString( subject.getState() ).toUpperCase() ); 
+        System.out.println("Hex String: " + Integer.toHexString(subject.getState()).toUpperCase());
    }
 }
